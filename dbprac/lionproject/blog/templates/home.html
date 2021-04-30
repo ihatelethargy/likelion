@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BLOG</title>
+    <style>
+      body {
+        text-align: center;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .itemBox {
+        padding: 20px;
+        width: 300px;
+        height: auto;
+        border: 2px solid black;
+        border-radius: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Blog Project</h1>
+    <div><a href="{%url 'new'%}">write blog</a></div>
+    <!-- item 하나하나다 객체이다 -->
+    <div class="container">
+      {% for blog in blogs %}
+      <div class="itemBox">
+        <h3>{{blog.title}}</h3>
+        <br />
+        [{{blog.writer}}]<br />
+        <!-- summary 함수 사용 -->
+        {{blog.summary}}
+        <a href="{% url 'detail' blog.id %}">...more</a>
+      </div>
+      <br /><br />{% endfor %}
+    </div>
+  </body>
+</html>

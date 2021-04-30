@@ -12,6 +12,9 @@ class Blog(models.Model):
     def __str__(self):
         return self.title # 이렇게하면 제목으로 볼 수 있다. (~~obejct(1)아니고)
 
+    def summary(self):
+        return self.body[:100]
+
     ## 이후 python manage.py makemigrations 생성 후 -> migrations 폴더 만들기
     ## python manage.py migrate migrations 폴더 뒤져서 수정 -< migrations 폴더에 있는 데이터베이스 적용하기
     ## id 컬럼은 이미 결정 되어있다.
@@ -20,6 +23,3 @@ class Blog(models.Model):
     # from  .models import Blog
 
     # admin.site.register(Blog)  어드민에서 add를 보면 확인가능
-
-
-
