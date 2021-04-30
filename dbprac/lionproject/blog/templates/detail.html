@@ -21,5 +21,9 @@
     <hr />
     <p>{{blog.body}}</p>
     <br />
+    <a href="{%url 'edit' blog.id%}">수정하기</a>
+    <!-- CRUD-Update 2:42 쯤  -->
+
+    <a href="{%url 'delete' blog.id%}">삭제하기</a>
   </body>
 </html>
