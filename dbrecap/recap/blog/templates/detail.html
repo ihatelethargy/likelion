@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail</title>
+  </head>
+  <style>
+    .detailWrapper {
+      background-color: aquamarine;
+      border-radius: 15px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+
+  <body>
+    <div class="detailWrapper">
+      <h1>제목: {{blog.title}}</h1>
+      <br />
+
+      <h2>작성자: {{blog.writer}}</h2>
+      <br />
+
+      <p>작성일: {{blog.pub_date}}</p>
+      <br />
+      <!-- 여기서는 디테일 페이지니까 전체 본문 보여줘도 괜찮으므로 summary안쓰고, body 사용 -->
+      <p>본문: {{blog.body}}</p>
+    </div>
+  </body>
+</html>

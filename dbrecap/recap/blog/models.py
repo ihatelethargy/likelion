@@ -13,3 +13,6 @@ class Blog(models.Model):
     ## 여기에 str 넣어준다.
     def __str__(self):
         return self.title  
+
+    def summary(self):
+        return self.body[:100]
