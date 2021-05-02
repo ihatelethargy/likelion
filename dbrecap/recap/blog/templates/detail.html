@@ -31,5 +31,7 @@
       <!-- 여기서는 디테일 페이지니까 전체 본문 보여줘도 괜찮으므로 summary안쓰고, body 사용 -->
       <p>본문: {{blog.body}}</p>
     </div>
+
+    <a href="{% url 'edit' blog.id%}">수정하기</a>
   </body>
 </html>
