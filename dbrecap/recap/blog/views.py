@@ -40,3 +40,7 @@ def update(request,id):
 
     return redirect('detail',update_blog.id)
 
+def delete(request, id):
+    delete_blog = Blog.objects.get(id=id)
+    delete_blog.delete()
+    return redirect('home')
