@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>detail</title>
+  </head>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .detailWrapper {
+      width: 50%;
+      border: 2px solid blueviolet;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 15px;
+    }
+  </style>
+  <body>
+    <div class="detailWrapper">
+      <h1>{{blog.title}}</h1>
+      <br />
+      <h2>{{blog.writer}}</h2>
+      <br />
+      <p>{{blog.pub_date}}</p>
+      <br />
+      <p>{{blog.body}}</p>
+      <br />
+      <a href="{%url 'edit' blog.id%}">수정하기</a>
+      <a href="{%url 'delete' blog.id%}">삭제하기</a>
+    </div>
+  </body>
+</html>

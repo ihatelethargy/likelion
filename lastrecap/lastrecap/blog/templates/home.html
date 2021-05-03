@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>home</title>
+  </head>
+  <style>
+    .homeWrapper {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .itemWrapper {
+      width: 50%;
+      border: 2px dotted aquamarine;
+      border-radius: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+  </style>
+  <body>
+    <div class="homeWrapper">
+      <a href="{%url 'new'%}">새 글 쓰기</a>
+      {% for blog in blogs %}
+      <div class="itemWrapper">
+        <h1>{{blog.title}}</h1>
+        <br />
+        <h2>{{blog.writer}}</h2>
+        <br />
+        <p>작성일: {{blog.pub_date}}</p>
+        <br />
+        <p>{{blog.summary}}</p>
+        <a href="{% url 'detail' blog.id %}">...more</a>
+        <br />
+      </div>
+      {% endfor %}
+    </div>
+  </body>
+</html>
