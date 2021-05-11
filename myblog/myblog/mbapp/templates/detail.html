@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href='{% static "reset.css" %}' />
+    <link rel="stylesheet" href='{% static "detail.css" %}' />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="detailWrapper">
+      <div class="itemWrapper">
+        <div class="detailItem">
+          <span>제목: {{blog.title}}</span>
+        </div>
+        <div class="detailItem">
+          <span>작성자: {{blog.writer}}</span>
+        </div>
+        <div class="detailItem">
+          <span>작성일: {{blog.pub_date}}</span>
+        </div>
+        <div class="detailItem detailBody">
+          <span>{{blog.body}}</span>
+        </div>
+      </div>
+      <div class="itemBtnWrapper">
+        <div class="btn">
+          <a href="{% url 'edit' blog.id %}">
+            <button>수정하기</button>
+          </a>
+        </div>
+        <a href="{% url 'delete' blog.id %}">
+          <div class="btn">
+            <button>삭제하기</button>
+          </div>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

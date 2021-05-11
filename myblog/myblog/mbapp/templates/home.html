@@ -9,6 +9,14 @@
     <link rel="stylesheet" href='{% static "home.css" %}' />
     <link rel="stylesheet" href='{% static "reset.css" %}' />
     <title>Document</title>
+    <style type="text/css">
+      a {
+        text-decoration: none;
+      }
+      a:visited {
+        color: black;
+      }
+    </style>
   </head>
   <body>
     <div class="homeWrapper">
@@ -17,13 +25,18 @@
       </div>
 
       <div class="homeContents">
+        <a href="{% url 'new' %}">
+          <div class="createBtn">+</div>
+        </a>
         {% for blog in blogs %}
-        <div class="homeContent">
-          <div class="contentTitle"><span>{{blog.title}}</span></div>
-          <div class="contentDate">
-            <span>{{blog.pub_date}}</span>
+        <a href="{% url 'detail' blog.id %}">
+          <div class="homeContent">
+            <div class="contentTitle"><span>{{blog.title}}</span></div>
+            <div class="contentDate">
+              <span>{{blog.pub_date}}</span>
+            </div>
           </div>
-        </div>
+        </a>
         {% endfor %}
       </div>
     </div>

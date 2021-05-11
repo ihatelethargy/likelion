@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href='{% static "reset.css" %}' />
+    <link rel="stylesheet" href='{% static "edit.css" %}' />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="formWrapper">
+      <form action="{% url 'update' blog.id %}" method="POST">
+        {% csrf_token %}
+        <div class="formItem">
+          <span>제목</span>
+          <input type="text" name="title" value="{{blog.title}}" />
+        </div>
+        <div class="formItem">
+          <span>작성자</span>
+          <input type="text" name="writer" value="{{blog.writer}}" />
+        </div>
+        <div class="formItem">
+          <span>본문</span>
+          <textarea name="body" id="" cols="60" rows="20">
+{{blog.body}}</textarea
+          >
+        </div>
+        <button class="submitBtn" type="submit">
+          <span>추가하기</span>
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

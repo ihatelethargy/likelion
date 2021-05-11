@@ -20,6 +20,13 @@ from mbapp.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main,name="main"),
-    path('about_me/',about,name="about"),
+    path('new/', new,name="new"),
+    path('create/', create, name="create"),
     path('blog/', home, name="home"),
+    path('blog/<str:id>/',detail,name="detail"),
+    path('about_me/',about,name="about"),
+    path('edit/<str:id>',edit,name="edit"),
+    path('update/<str:id>',update,name="update"),
+    path('delete/<str:id>',delete,name="delete"),
+    
 ]
