@@ -16,17 +16,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from mbapp.views import *
+import portfolio.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main,name="main"),
-    path('new/', new,name="new"),
-    path('create/', create, name="create"),
-    path('blog/', home, name="home"),
-    path('blog/<str:id>/',detail,name="detail"),
     path('about_me/',about,name="about"),
-    path('edit/<str:id>',edit,name="edit"),
-    path('update/<str:id>',update,name="update"),
-    path('delete/<str:id>',delete,name="delete"),
-    
+
+    path('blog/', home, name="home"),
+    path('blog/new/', new,name="new"),
+    path('blog/create/', create, name="create"),
+    path('blog/<str:id>/',detail,name="detail"),
+    path('blog/edit/<str:id>',edit,name="edit"),
+    path('blog/update/<str:id>',update,name="update"),
+    path('blog/delete/<str:id>',delete,name="delete"),
+
+    path('portfolio/', portfolio.views.portfolio, name="portfolio"),   
 ]
