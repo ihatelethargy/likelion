@@ -11,9 +11,13 @@
   </head>
   <body>
     <div class="formWrapper">
-      <form action="{% url 'create' %}" method="POST">
+      <form
+        action="{% url 'create' %}"
+        method="POST"
+        enctype="multipart/form-data"
+      >
         {% csrf_token %}
-        <div class="formItem">
+        <!-- <div class="formItem">
           <span>제목</span>
           <input type="text" name="title" />
         </div>
@@ -22,9 +26,14 @@
           <input type="text" name="writer" />
         </div>
         <div class="formItem">
+          <span>사진</span>
+          <input type="file" name="image" />
+        </div>
+        <div class="formItem">
           <span>본문</span>
           <textarea name="body" id="" cols="60" rows="20"></textarea>
-        </div>
+        </div> -->
+        {{form.as_p}}
         <button class="submitBtn" type="submit">
           <span>추가하기</span>
         </button>

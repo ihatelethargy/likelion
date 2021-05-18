@@ -19,6 +19,11 @@
           <span>작성자: {{blog.writer}}</span>
         </div>
         <div class="detailItem">
+          {% if blog.image %}
+          <img src="{{blog.image.url}}" alt="" />
+          {% endif %}
+        </div>
+        <div class="detailItem">
           <span>작성일: {{blog.pub_date}}</span>
         </div>
         <div class="detailItem detailBody">
