@@ -84,3 +84,24 @@ a {
   background-color: #ffffff;
   color: #34a866;
 }
+
+.commonHeader {
+  width: 100%;
+  height: 8vh;
+  background-color: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.commonHeader .headerItem {
+  border-radius: 15px;
+  border: 2px solid #34a866;
+  padding: 7px 7px;
+  margin-left: 20px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+}

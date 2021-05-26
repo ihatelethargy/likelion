@@ -29,24 +29,21 @@
       <a href="{% url 'about' %}">
         <div class="headerItem">MyPage</div>
       </a>
+      {% if not user.is_authenticated %}
+      <a href="{% url 'login' %}">
+        <span class="btn"> login</span>
+      </a>
+      {% endif %} {% if user.is_authenticated %}
+      <a href="{% url 'logout' %}">
+        <span class="btn"> logout</span>
+      </a>
+      {% endif %} {% if not user.is_authenticated %}
+      <a href="{% url 'signup' %}">
+        <span class="btn"> signup</span>
+      </a>
+      {% endif %}
     </div>
 
-    <div class="mainWrapper">
-      <div class="mainTitle">
-        <span>Jaehyeon's Django Blog</span>
-      </div>
-      <div class="allBtnWrapper">
-        <div class="btnWrapper">
-          <a href="{% url 'about' %}">
-            <span class="btn"> Go MyPage</span>
-          </a>
-        </div>
-        <div>
-          <a href="{% url 'home' %}">
-            <span class="btn"> Go Blog</span>
-          </a>
-        </div>
-      </div>
-    </div>
+    {% block content %} {% endblock %}
   </body>
 </html>

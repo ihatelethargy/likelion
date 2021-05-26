@@ -26,6 +26,6 @@ urlpatterns = [
     path('', main,name="main"),
     path('about_me/',about,name="about"),
     path('blog/',include('mbapp.urls')),  ## url 관리
-
+    path('account/',include('account.urls')),
     path('portfolio/', portfolio.views.portfolio, name="portfolio"),   
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

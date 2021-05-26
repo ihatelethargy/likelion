@@ -20,16 +20,45 @@
     </style>
   </head>
   <body>
+    <div class="commonHeader">
+      <a href="{% url 'main' %}">
+        <div class="headerItem">Home</div>
+      </a>
+      <a href="{% url 'home' %}">
+        <div class="headerItem">Blog</div>
+      </a>
+      <a href="{% url 'about' %}">
+        <div class="headerItem">MyPage</div>
+      </a>
+      {% if not user.is_authenticated %}
+      <a href="{% url 'login' %}">
+        <div class="headerItem">Login</div>
+      </a>
+      {% endif %} {% if user.is_authenticated %}
+      <a href="{% url 'logout' %}">
+        <div class="headerItem">Logout</div>
+      </a>
+      {% endif %} {% if not user.is_authenticated %}
+      <a href="{% url 'signup' %}">
+        <div class="headerItem">Signup</div>
+      </a>
+      {% endif %}
+    </div>
     <div class="homeWrapper">
       <div class="homeTitle">
-        <span>Jaehyeon's Django Blog</span>
+        {%if user.is_authenticated %}
+        <span> hi {{user.username}}</span>
+        {% endif %} {% if not user.is_authenticated %}
+        <span> Welcome!</span>
+        {% endif %}
       </div>
 
       <div class="homeContents">
+        {% if user.is_authenticated %}
         <a href="{% url 'new' %}">
           <div class="createBtn">+</div>
         </a>
-        {% for blog in blogs %}
+        {% endif %} {% for blog in blogs %}
         <a href="{% url 'detail' blog.id %}">
           <div class="homeContent">
             <div class="contentTitle"><span>{{blog.title}}</span></div>
