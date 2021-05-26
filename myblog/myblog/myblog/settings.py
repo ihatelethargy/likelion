@@ -28,6 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'account.CustomUser' ## 유저확장
 
 # Application definition
 
@@ -129,9 +130,10 @@ STATICFILES_DIRS = [
 
 STATICFILES_ROOT = os.path.join(BASE_DIR, 'static')
 
+# 미디어
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

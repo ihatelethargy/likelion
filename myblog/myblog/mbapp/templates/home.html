@@ -42,12 +42,17 @@
       <a href="{% url 'signup' %}">
         <div class="headerItem">Signup</div>
       </a>
+      {% endif %} {% if user.is_authenticated %}
+      <a href="{% url 'profile' %}">
+        <div class="headerItem">Profile</div>
+      </a>
       {% endif %}
     </div>
     <div class="homeWrapper">
       <div class="homeTitle">
         {%if user.is_authenticated %}
-        <span> hi {{user.username}}</span>
+        <span> hi {{user.nickname}} </span>
+        <!-- <span>{{user.location}}에서 접속해주셨네요</span> -->
         {% endif %} {% if not user.is_authenticated %}
         <span> Welcome!</span>
         {% endif %}
