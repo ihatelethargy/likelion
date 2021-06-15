@@ -17,8 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings ## 
 from django.conf.urls.static import static
+
 from mbapp.views import *
-import portfolio.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +26,5 @@ urlpatterns = [
     path('about_me/',about,name="about"),
     path('blog/',include('mbapp.urls')),  ## url 관리
     path('account/',include('account.urls')),
-    path('portfolio/', portfolio.views.portfolio, name="portfolio"),   
+    # path('portfolio/', portfolio.views.portfolio, name="portfolio"),   
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
